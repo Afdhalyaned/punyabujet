@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet" >
-    <title>Login</title>
+    <title>Register</title>
   </head>
   <!-- start body -->
   <body class="center">
-    <!-- start main layout -->
+    <!-- start main-layout -->
     <div class="main-layout">
       <!-- start page content -->
       <div class="row">
         <div class="col">
-          <div class="content">
+          <div class="content ">
             <!-- logo -->
             <div class="row">
               <div class="col">
@@ -25,38 +25,44 @@
               </div>
             </div>
             <!-- end logo -->
-            <!-- start login form -->
+            <!-- start register form -->
             <div class="row">
               <div class="col">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('register') }}">
                 @csrf
-                  <h4 class="text-light mb-3 mx-3">Login</h4>
-                  <!-- email form -->
+                  <h4 class="text-light mb-3 mx-3">Daftar</h4>
+                  <!-- email -->
                   <div class="mb-3 mx-3">
                     <input type="email" class="form-control border-0" id="email" name="email" placeholder="email">
                   </div>
+                  <!-- username -->
+                  <div class="mb-3 mx-3">
+                    <input type="text" class="form-control border-0" id="username" name="username" placeholder="username">
+                  </div>
                   <!-- password form -->
                   <div class="mb-3 mx-3">
-                    <input type="password" class="form-control border-0" id="password" name="password" placeholder="password" required>
+                    <input type="password" class="form-control border-0" id="password" name="password" placeholder="password">
                   </div>
-                  <!-- remember me -->
+                  <!-- re-password -->
                   <div class="mb-3 mx-3">
-                    <input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember" id="remember_me" >
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <input type="password" class="form-control border-0" id="re-password" name="re-password" placeholder="re-password">
+                  </div>
+                  <!-- term and condition -->
+                  <div class="mb-3 mx-3">
+                    <p class="text-light text-center">Dengan mengklik tombol daftar, anda setuju dengan <a href="#" class="text-light">Syarat Ketentuan</a> dan <a href="#" class="text-light">Kebijakan privacy</a> kami</p>
                   </div>
                   <!-- button -->
                   <div class="mb-3 mx-3 d-grid gap-2">
-                    <button type="submit" class="btn text-dark btn-green border-0">{{ __('Masuk') }}</button>
+                    <button type="submit" class="btn text-dark btn-green border-0">Daftar</button>
                   </div>
                   <!-- link to register -->
                   <div class="mb-3 mx-3">
-                    <p class="text-light text-center">Belum punya akun? <a href="register.html" class="text-light">Daftar</a> disini. <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('lupa password??') }} </a></p>
+                    <p class="text-light text-center">Sudah punya akun? <a href="login.html" class="text-light">Login</a> disini</p>
                   </div>
                 </form>
               </div>
             </div>
-            <!-- end login form -->
+            <!-- end register form -->
           </div>
         </div>
       </div>
@@ -65,8 +71,9 @@
     </div>
     <!-- end container -->
     
-    <script src="../../js/bootstrap.bundle.min.js"></script>
-
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
+    
   </body>
   <!-- end body -->
 </html>

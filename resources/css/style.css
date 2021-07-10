@@ -1,0 +1,242 @@
+body {
+    margin-top: 48px;
+}
+
+.btn-green {
+    background-image:  linear-gradient(#1ED960, #117D37);
+}
+
+.bg-bottom-nav {
+    background-color: #26488C;
+}
+
+.bg-black {
+    background-color: #0D0D0D;
+}
+
+.bg-blue {
+    background-color: #056CF2;
+}
+
+.border-blue {
+    border-color: #056CF2!important;
+}
+
+.hr-blue {
+    border-top: 2px solid #056CF2;
+}
+
+.hr-yellow {
+    border-top: 2px solid #F2B705;
+}
+
+.border-yellow {
+    border-color: #F2B705!important;
+}
+
+.bg-yellow {
+    background-color: #F2B705;
+}
+
+.main-layout {
+    box-shadow: 0 0 48px 0 rgb(0 0 0 / 20%);
+    background-color: #0D0D0D;
+    min-height: 100vh;
+    max-width: 500px;
+    overflow-x: hidden !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin:auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+.common-header {
+    height: 48px;
+    transition: top .3s;
+    padding: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    background: #313131;
+    display: flex;
+
+
+
+}
+
+.fixed-bottom, .fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+/* bottom nav menu */
+
+.general-bottom-nav-wraper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+}
+
+.general-bottom-nav-wraper .general-bottom-nav {
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #313131;
+    box-shadow: 0px -1px 3px 0px rgb(0 0 0 / 15%);
+}
+
+.general-bottom-nav-wraper .general-bottom-nav a {
+    text-align: center;
+    font-size: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.0;
+    position: relative;
+    color: #fff;
+    padding-bottom: 3px;
+
+}
+
+.general-bottom-nav-wraper .general-bottom-nav a .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3px;
+}
+
+.general-bottom-nav-wraper .general-bottom-nav .active {
+    background-color: #26488C;
+}
+
+.fix-bottom-button {
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+    left: 0;
+    z-index: 101;
+}
+
+.fix-bottom-button .btn {
+    max-width: 500px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: 0px -1px 3px 0px rgb(0 0 0 / 15%);
+}
+
+.border-yellow {
+    border-color: #F2B705;
+}
+
+/* hamburger menu */
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    margin: auto 0;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 29px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger manu animation */
+.menu-toggle span:nth-child(2){
+   
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: #fff;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: #fff;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0)
+}
+
+/* nav */
+.header ul {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80%;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: -1;
+    background-color: #313131;
+    transform: translateX(-100%);
+    transition: all 1s;
+    opacity: 100;
+
+}
+
+.header ul li {
+    list-style-type: none;
+}
+
+.header ul li a{
+    text-decoration: none;
+}
+
+.header ul.slide {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.menu-toggle {
+    display: flex;
+}
