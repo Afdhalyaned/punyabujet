@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transaction;
-use App\Models\CategorySub;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Auth;
 
 
-class TransactionController extends Controller
+class WalletController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +16,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::all();
-        $categorySubs = CategorySub::all();
-        $wallets = Wallet::all();
-        // dd($transactions);
-        return view('transaction.index', [
-            'transactions' => $transactions,
-            'categorySubs' => $categorySubs,
+        $wallets = Wallet::where('team_id', Auth::user()->team_id)->get();
+        return view('wallet.index', [
             'wallets' => $wallets,
         ]);
     }
@@ -36,7 +29,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -47,16 +40,12 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        $transaction = new Transaction;
-        $transaction->team_id = Auth::user()->team_id;
-        $transaction->date = $request->date;
-        $transaction->detail = $request->detail;
-        $transaction->ammount = $request->ammount;
-        $transaction->category_sub_id = $request->category_sub_id;
-        $transaction->wallet_id = $request->wallet_id;
-        $transaction->save();
+        $wallet = new Wallet;
+        $wallet->name = $request->name;
+        $wallet->team_id = Auth::user()->team_id;
+        $wallet->save();
 
-        return redirect('/transaction');
+        return redirect('/wallet');
     }
 
     /**
@@ -67,7 +56,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -78,13 +67,9 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        $transaction = Transaction::find($id);
-        $wallets = Wallet::all();
-        $CategorySubs = CategorySub::all();
-        return view('transaction.edit',[
-            'transaction' => $transaction,
-            'wallets' => $wallets,
-            'CategorySubs' => $CategorySubs
+        $wallet = Wallet::find($id);
+        return view('wallet.edit',[
+            'wallet' => $wallet,
         ]);
     }
 
@@ -97,9 +82,9 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $transaction = Transaction::find($id);
-        $transaction->update($request->all());
-        return redirect('/transaction')->with('sukses','data berhasil di diubah');
+        $wallet = Wallet::find($id);
+        $wallet->update($request->all());
+        return redirect('/wallet')->with('sukses','data berhasil di diubah');
     }
 
     /**
@@ -110,8 +95,8 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $transaction = \App\Models\Transaction::find($id);
-        $transaction->delete();
-        return redirect('/transaction')->with('sukses','Data berhasil di delete');
+        $wallet = \App\Models\Wallet::find($id);
+        $wallet->delete();
+        return redirect('/wallet')->with('sukses','Data berhasil di delete');
     }
 }

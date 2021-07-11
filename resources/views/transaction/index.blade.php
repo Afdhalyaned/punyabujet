@@ -104,7 +104,7 @@
                     <div class="modal-footer border-0">
                         <button type="submit" class="btn btn-green col-10 mx-auto border-0">Simpan</button>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
     </div>
@@ -178,12 +178,11 @@
         </div>
     </div>
 
-
     <!-- start bottom nav -->
     <div class="general-bottom-nav-wraper">
         <nav class="general-bottom-nav">
             <!-- transaction -->
-            <a href="transaction.html" class="active">
+            <a href="/transaction" class="active">
                 <span class="icon">
                     <img class="img-fluid" src="asset/transaksi.svg" alt="">
                 </span>
@@ -197,7 +196,7 @@
                 <span>budget</span>
             </a>
             <!-- wallet -->
-            <a href="dompet.html" >
+            <a href="/wallet" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/dompet-icon.svg" alt="">
                 </span>
@@ -210,7 +209,6 @@
                 </span>
                 <span>kategori</span>
             </a>
-            
         </nav>
     </div>
     <!-- end bottom nav -->

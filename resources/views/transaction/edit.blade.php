@@ -4,27 +4,27 @@
     <div class="row">
         <div class="col">
             <div class="content ">
-                <form action="">
+                <form method="POST" enctype="multipart/form-data">
                 @csrf
                     <h4 class="text-light mb-3 mx-3">Edit Transaksi</h4>
                     <!-- date -->
                     <div class="mb-3 mx-3">
-                        <input required value="{{$transaction->date}}" type="date" class="form-control border-0" id="email" placeholder="tanggal">
+                        <input required name="date" value="{{$transaction->date}}" type="date" class="form-control border-0" id="email" placeholder="tanggal">
                     </div>
                     <!-- desc -->
                     <div class="mb-3 mx-3">
-                        <input required value="{{$transaction->detail}}" type="text" class="form-control border-0" id="desc" placeholder="transaksi">
+                        <input required name="detail" value="{{$transaction->detail}}" type="text" class="form-control border-0" id="detail" placeholder="transaksi">
                     </div>
                     <!-- pengeluaran/pemasukan -->
                     <div class="mb-3 mx-3">
-                        <select required class="form-select border-0" name="root-category" id="root-category">
+                        <select required class="form-select border-0" name="" id="root-category">
                             <option selected value=" ">pengeluaran</option>
                             <option value=" ">pemasukan</option>
                         </select>
                     </div>
                     <!-- kategori -->
                     <div class="mb-3 mx-3">
-                        <select required class="form-select border-0" name="category" id="category">
+                        <select required name="category_sub_id" class="form-select border-0"  id="category_sub_id">
                             @foreach($CategorySubs as $CategorySub)
                                 <option value="{{$CategorySub->id}}" @if($transaction->category_sub_id == $CategorySub->id) Selected @endif >{{$CategorySub->name}}</option>
                             @endforeach
@@ -32,7 +32,7 @@
                     </div>
                     <!-- nominal -->
                     <div class="mb-3 mx-3">
-                        <input required value="55000" type="$transaction->amount" class="form-control" id="amount" placeholder="nominal">
+                        <input required name="ammount" value="{{$transaction->ammount}}" type="$transaction->amount" class="form-control" id="ammount" placeholder="nominal">
                     </div>
                     <!-- metode pembayaran -->
                     <div class="mb-3 mx-3">
@@ -43,8 +43,8 @@
                         </select>
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="submit" class="btn btn-green col-5 mx-auto border-0">Hapus</button>
-                        <button type="submit" class="btn btn-green col-5 mx-auto border-0">Simpan</button>
+                        <input type="submit" value="Hapus" class="btn btn-green col-5 mx-auto border-0" formaction="/transaction/{{$transaction->id}}/delete">
+                        <input type="submit" value="Simpan" class="btn btn-green col-5 mx-auto border-0" formaction="/transaction/{{$transaction->id}}/update">
                     </div>
                 </form>
             </div>
@@ -56,7 +56,7 @@
     <div class="general-bottom-nav-wraper">
         <nav class="general-bottom-nav">
             <!-- transaction -->
-            <a href="transaction.html" class="active">
+            <a href="/transaction" class="active">
                 <span class="icon">
                     <img class="img-fluid" src="{{asset('asset/transaksi.svg')}}" alt="">
                 </span>
@@ -70,7 +70,7 @@
                 <span>budget</span>
             </a>
             <!-- wallet -->
-            <a href="dompet.html" >
+            <a href="/wallet" >
                 <span class="icon">
                     <img class="img-fluid" src="{{asset('asset/dompet-icon.svg')}}" alt="">
                 </span>
