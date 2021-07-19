@@ -1,37 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <!-- start page content -->
     <div class="row">
         <div class="col">
-            <div class="content text-light mx-3">
-                <!-- header -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <h2>Ubah Dompet</h2>
-                    </div>
-                    <div class="col">
-                        <h2 class="text-end"></h2>
-                    </div>
-                </div>
-                <!-- wallet -->
-                <form action="/wallet" method="POST">
+            <div class="content ">
+                <form method="POST" enctype="multipart/form-data">
                 @csrf
-                    <!-- budget -->
-                    <div class="mb-3">
-                        <input required name="name" value="{{$wallet->name}}" type="text" class="form-control border-0" id="wallet" placeholder="Nama dompet">
+                    <h4 class="text-light my-3 mx-3">Bujet {{$budget->name}}</h4>
+                    
+                    <!-- sub karegori -->
+                    <div class="mb-3 mx-3">
+                        <input required value="{{$budget->budget}}" name="budget" type="number" class="form-control border-0" id="budget" placeholder="sub kategori">
                     </div>
                     <div class="modal-footer border-0">
-                        <input type="submit" value="Hapus" class="btn btn-green col-5 mx-auto border-0" formaction="/wallet/{{$wallet->id}}/delete">
-                        <input type="submit" value="Simpan" class="btn btn-green col-5 mx-auto border-0" formaction="/wallet/{{$wallet->id}}/update">
+                        <input type="submit" value="Simpan" class="btn btn-green col-5 mx-auto border-0" formaction="/budget/{{$budget->id}}/update">
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <!-- end main-layout -->
-    
+
     <!-- start bottom nav -->
     <div class="general-bottom-nav-wraper">
         <nav class="general-bottom-nav">
@@ -43,14 +32,14 @@
                 <span>transaksi</span>
             </a>
             <!-- budget -->
-            <a href="/budget" >
+            <a href="/budget" class="active">
                 <span class="icon">
                     <img class="img-fluid" src="asset/budget.svg" alt="">
                 </span>
                 <span>budget</span>
             </a>
             <!-- wallet -->
-            <a href="/wallet" class="active">
+            <a href="/wallet" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/dompet-icon.svg" alt="">
                 </span>
@@ -66,5 +55,4 @@
         </nav>
     </div>
     <!-- end bottom nav -->
-
 @endsection

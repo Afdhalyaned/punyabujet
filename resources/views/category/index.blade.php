@@ -136,30 +136,30 @@
     <div class="general-bottom-nav-wraper">
         <nav class="general-bottom-nav">
             <!-- transaction -->
-            <a href="/transaction">
+            <a href="/transaction" >
                 <span class="icon">
-                    <img class="img-fluid" src="{{asset('asset/transaksi.svg')}}" alt="">
+                    <img class="img-fluid" src="asset/transaksi.svg" alt="">
                 </span>
                 <span>transaksi</span>
             </a>
             <!-- budget -->
-            <a href="budget.html" >
+            <a href="/budget" >
                 <span class="icon">
-                    <img class="img-fluid" src="{{asset('asset/budget.svg')}}" alt="">
+                    <img class="img-fluid" src="asset/budget.svg" alt="">
                 </span>
                 <span>budget</span>
             </a>
             <!-- wallet -->
             <a href="/wallet" >
                 <span class="icon">
-                    <img class="img-fluid" src="{{asset('asset/dompet-icon.svg')}}" alt="">
+                    <img class="img-fluid" src="asset/dompet-icon.svg" alt="">
                 </span>
                 <span>dompet</span>
             </a>
             <!-- kategori -->
-            <a href="/category" class="active" >
+            <a href="/category" class="active">
                 <span class="icon">
-                    <img class="img-fluid" src="{{asset('asset/category.svg')}}" alt="">
+                    <img class="img-fluid" src="asset/category.svg" alt="">
                 </span>
                 <span>kategori</span>
             </a>

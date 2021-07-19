@@ -189,7 +189,7 @@
                 <span>transaksi</span>
             </a>
             <!-- budget -->
-            <a href="budget.html" >
+            <a href="/budget" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/budget.svg" alt="">
                 </span>
@@ -203,7 +203,7 @@
                 <span>dompet</span>
             </a>
             <!-- kategori -->
-            <a href="category.html" >
+            <a href="/category" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/category.svg" alt="">
                 </span>

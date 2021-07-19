@@ -68,172 +68,49 @@
                     <div class="col">
                         <h5>Pengeluaran</h5>
                         <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Biaya Admin</span>
+                        @foreach($budgets as $budget)
+                            @foreach($budget->categorySubs as $categorySub)
+                                @if(($categorySub->budget)+($categorySub->transaction->sum('ammount')!=0))                         
+                                    @if($categorySub->transaction->sum('ammount')>=$categorySub->budget)
+                                        @php
+                                        $progressBackground = 'bg-danger';
+                                        $progress = 100;
+                                        @endphp
+                                    @else
+                                        @php
+                                        $progressBackground = 'bg-yellow';
+                                        $progress = $categorySub->transaction->sum('ammount')/$categorySub->budget*100;
+                                        @endphp
+                                    @endif
+                                @else
+                                    @php
+                                        $progress = 0;
+                                        $progressBackground = 'bg-green';
+                                    @endphp
+                                @endif
+                            <a href="/budget/{{$categorySub->id}}/edit" class="text-light">
+                                <div class="category ms-3 mb-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>{{$categorySub->name}}</span>
+                                        </div>
+                                        <div class="col text-end">
+                                            <span>{{$categorySub->transaction->sum('ammount')}}/{{$categorySub->budget}}</span>
+                                        </div>
                                     </div>
-                                    <div class="col text-end">
-                                        <span>30.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="progress mt-1" style="height: 2px;">
+                                                    
+                                                <div class="progress-bar {{$progressBackground}}" role="progressbar" style="width: {{$progress}}%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Makanan dan Minuman</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>250.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Tagihan</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>1.500.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 43%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Transport</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>400.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 72%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Belanja</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>250.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 23%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Hiburan</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>250.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 30%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Travel</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>250.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Pendidikan</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>1.000.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -241,42 +118,19 @@
     </div>
     <!-- end main-layout -->
 
-    <!-- Modal Edit Budget-->
-    <div class="modal fade " id="editbudget" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-black">
-                <div class="modal-header border-0">
-                <h5 class="modal-title text-light" id="exampleModalLabel">Makanan dan Minuman</h5>
-                <button type="button" class="btn-close border-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <!-- budget -->
-                        <div class="mb-3">
-                            <input required value="250000" type="number" class="form-control border-0" id="budget" placeholder="budget">
-                        </div>
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="submit" class="btn btn-green col-10 mx-auto border-0">Simpan</button>
-                    </div>
-                    </form>
-            </div>
-        </div>
-    </div>
-
 
     <!-- start bottom nav -->
     <div class="general-bottom-nav-wraper">
         <nav class="general-bottom-nav">
             <!-- transaction -->
-            <a href="transaction.html" >
+            <a href="/transaction" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/transaksi.svg" alt="">
                 </span>
                 <span>transaksi</span>
             </a>
             <!-- budget -->
-            <a href="budget.html" class="active">
+            <a href="/budget" class="active">
                 <span class="icon">
                     <img class="img-fluid" src="asset/budget.svg" alt="">
                 </span>
@@ -290,13 +144,12 @@
                 <span>dompet</span>
             </a>
             <!-- kategori -->
-            <a href="category.html" >
+            <a href="/category" >
                 <span class="icon">
                     <img class="img-fluid" src="asset/category.svg" alt="">
                 </span>
                 <span>kategori</span>
             </a>
-            
         </nav>
     </div>
     <!-- end bottom nav -->

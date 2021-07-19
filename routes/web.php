@@ -46,4 +46,20 @@ Route::post('/category/{category}/delete', 'App\Http\Controllers\CategoryControl
 Route::get('/category/{category}/edit', 'App\Http\Controllers\CategoryController@edit')->middleware(['auth'])->name('category-edit');
 Route::post('/category/{category}/update', 'App\Http\Controllers\CategoryController@update')->middleware(['auth'])->name('category-update');
 
+// budget route
+Route::get('/budget', 'App\Http\Controllers\BudgetController@index')->middleware(['auth'])->name('budget');
+Route::get('/budget/{budget}', 'App\Http\Controllers\BudgetController@show')->middleware(['auth'])->name('budget-show');
+Route::post('/budget', 'App\Http\Controllers\BudgetController@store')->middleware(['auth'])->name('budget-store');
+Route::post('/budget/{budget}/delete', 'App\Http\Controllers\BudgetController@destroy')->middleware(['auth'])->name('budget-destroy');
+Route::get('/budget/{budget}/edit', 'App\Http\Controllers\BudgetController@edit')->middleware(['auth'])->name('budget-edit');
+Route::post('/budget/{budget}/update', 'App\Http\Controllers\BudgetController@update')->middleware(['auth'])->name('budget-update');
+
+// profile
+Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->middleware(['auth'])->name('budget');
+Route::post('/profile/{profile}/update', 'App\Http\Controllers\ProfileController@update')->middleware(['auth'])->name('budget');
+
+// Kolaborator
+Route::get('/collaborator', 'App\Http\Controllers\CollaboratorController@index')->middleware(['auth'])->name('budget');
+Route::post('/collaborator/{collaborator}/update', 'App\Http\Controllers\CollaboratorController@update')->middleware(['auth'])->name('budget');
+
 require __DIR__.'/auth.php';

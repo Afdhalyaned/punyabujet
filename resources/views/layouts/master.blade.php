@@ -26,8 +26,8 @@
                 <span></span>
             </div>
             <ul>
-                <li class="mt-5 btn text-start"><a href="profile.html" class="text-light">Profil</a></li>
-                <li class="btn text-start"><a href="kolaborator.html" class="text-light">Kolaborator</a></li>
+                <li class="mt-5 btn text-start"><a href="/profile" class="text-light">Profil</a></li>
+                <li class="btn text-start"><a href="/collaborator" class="text-light">Kolaborator</a></li>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
