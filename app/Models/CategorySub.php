@@ -20,5 +20,9 @@ class CategorySub extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }

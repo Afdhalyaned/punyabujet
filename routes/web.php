@@ -32,12 +32,18 @@ Route::post('/transaction/{transaction}/update', 'App\Http\Controllers\Transacti
 
 // wallet route
 Route::get('/wallet', 'App\Http\Controllers\WalletController@index')->middleware(['auth'])->name('wallet');
-// Route::get('/wallet/create', 'App\Http\Controllers\WalletController@create')->middleware(['auth'])->name('wallet-create');
 Route::get('/wallet/{wallet}', 'App\Http\Controllers\WalletController@show')->middleware(['auth'])->name('wallet-show');
 Route::post('/wallet', 'App\Http\Controllers\WalletController@store')->middleware(['auth'])->name('wallet-store');
 Route::post('/wallet/{wallet}/delete', 'App\Http\Controllers\WalletController@destroy')->middleware(['auth'])->name('wallet-destroy');
 Route::get('/wallet/{wallet}/edit', 'App\Http\Controllers\WalletController@edit')->middleware(['auth'])->name('wallet-edit');
 Route::post('/wallet/{wallet}/update', 'App\Http\Controllers\WalletController@update')->middleware(['auth'])->name('wallet-update');
 
+// category route
+Route::get('/category', 'App\Http\Controllers\CategoryController@index')->middleware(['auth'])->name('category');
+Route::get('/category/{category}', 'App\Http\Controllers\CategoryController@show')->middleware(['auth'])->name('category-show');
+Route::post('/category', 'App\Http\Controllers\CategoryController@store')->middleware(['auth'])->name('category-store');
+Route::post('/category/{category}/delete', 'App\Http\Controllers\CategoryController@destroy')->middleware(['auth'])->name('category-destroy');
+Route::get('/category/{category}/edit', 'App\Http\Controllers\CategoryController@edit')->middleware(['auth'])->name('category-edit');
+Route::post('/category/{category}/update', 'App\Http\Controllers\CategoryController@update')->middleware(['auth'])->name('category-update');
 
 require __DIR__.'/auth.php';

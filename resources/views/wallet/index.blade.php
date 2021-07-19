@@ -18,13 +18,13 @@
                 @foreach($wallets as $wallet)
                 <!-- wallet -->
                 <a href="/wallet/{{$wallet->id}}/edit">
-                    <div class="category ">
+                    <div class="category text-white">
                         <div class="row mx-3 mb-1">
                             <div class="col">
-                                <h5>{{$wallet->name}}</h5>
+                                <span>{{$wallet->name}}</span>
                             </div>
                             <div class="col text-end">
-                                <h5>0</h5>
+                                <span>0</span>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 <span>dompet</span>
             </a>
             <!-- kategori -->
-            <a href="category.html" >
+            <a href="/category" >
                 <span class="icon">
                     <img class="img-fluid" src="{{asset('asset/category.svg')}}" alt="">
                 </span>
