@@ -18,9 +18,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::all();
-        $categorySubs = CategorySub::all();
-        $wallets = Wallet::all();
+        $transactions = Transaction::where('team_id', Auth::user()->team_id)->get();
+        $categorySubs = CategorySub::where('team_id', Auth::user()->team_id)->get();
+        $wallets = Wallet::where('team_id', Auth::user()->team_id)->get();
         // dd($transactions);
         return view('transaction.index', [
             'transactions' => $transactions,
