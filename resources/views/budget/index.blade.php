@@ -12,7 +12,7 @@
                         <h2>Balance</h2>
                     </div>
                     <div class="col">
-                        <h2 class="text-end">-200.000</h2>
+                        <!-- <h2 class="text-end">-200.000</h2> -->
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                                         <span class="">Gaji</span>
                                     </div>
                                     <div class="col text-end">
-                                        <span>5.000.000</span>
+                                        <!-- <span>5.000.000</span> -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -40,26 +40,7 @@
                                 </div>
                             </div>
                         </a>
-                        <!-- category -->
-                        <a href="" class="text-light" data-bs-toggle="modal" data-bs-target="#editbudget">
-                            <div class="category ms-3 mb-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <span>Freelance</span>
-                                    </div>
-                                    <div class="col text-end">
-                                        <span>1.000.000</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="progress mt-1" style="height: 2px;">
-                                            <div class="progress-bar bg-blue" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        
                     </div>
                 </div>
 

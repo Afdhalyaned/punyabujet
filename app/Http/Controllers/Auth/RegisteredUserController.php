@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Models\Team;
+use App\Models\Category;
 
 
 class RegisteredUserController extends Controller
@@ -54,6 +55,28 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'team_id' => $request->team_id,
         ]);
+
+        $categories = [
+            'biaya admin',
+            'makan',
+            'tagihan',
+            'transport',
+            'belanja',
+            'pertemanan',
+            'hiburan',
+            'jalan-jalan',
+            'lain-lain',
+        ];
+
+        foreach($categories as $category){
+            $newCategory = new category;
+            $newCategory->name = $category;
+            $newCategory->team_id = $request->team_id;
+            $newCategory->type = 2;
+            $newCategory->save();
+
+        };
+
 
         event(new Registered($user));
 

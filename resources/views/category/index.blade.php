@@ -20,7 +20,7 @@
                                 <span class="fs-5">Pendapatan</span>
                             </div>
                             <div class="col text-end">
-                                <span class="fs-5">4.500.000</span>
+                                <span class="fs-5">0</span>
                             </div>
                         </div>
                         <hr class="hr-blue">
@@ -31,19 +31,11 @@
                                     gaji
                                 </div>
                                 <div class="col text-end">
-                                    4.000.000
+                                    0
                                 </div>
                             </div>
                         </div>
-                        <!-- category -->
-                        <div class="row">
-                            <div class="col">
-                                freelance
-                            </div>
-                            <div class="col text-end ">
-                                1.000.000
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- pengeluaran -->
@@ -54,7 +46,7 @@
                                 <span class="fs-5">Pengeluaran</span>
                             </div>
                             <div class="col text-end">
-                                <span class="fs-5">4.500.000</span>
+                                <!-- <span class="fs-5">4.500.000</span> -->
                             </div>
                         </div>
                         <hr class="hr-yellow">
