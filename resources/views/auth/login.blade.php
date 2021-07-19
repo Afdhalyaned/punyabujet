@@ -50,7 +50,7 @@
                   </div>
                   <!-- link to register -->
                   <div class="mb-3 mx-3">
-                    <p class="text-light text-center">Belum punya akun? <a href="register.html" class="text-light">Daftar</a> disini. <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <p class="text-light text-center">Belum punya akun? <a href="/register" class="text-light">Daftar</a> disini. <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('lupa password??') }} </a></p>
                   </div>
                 </form>
