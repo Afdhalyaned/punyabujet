@@ -37,7 +37,7 @@
                   </div>
                   <!-- username -->
                   <div class="mb-3 mx-3">
-                    <input type="text" class="form-control border-0" id="username" name="username" placeholder="username">
+                    <input type="text" class="form-control border-0" id="name" name="name" placeholder="name">
                   </div>
                   <!-- password form -->
                   <div class="mb-3 mx-3">
@@ -45,19 +45,19 @@
                   </div>
                   <!-- re-password -->
                   <div class="mb-3 mx-3">
-                    <input type="password" class="form-control border-0" id="re-password" name="re-password" placeholder="re-password">
+                    <input type="password" class="form-control border-0" id="password_confirmation" name="password_confirmation" placeholder="re-password">
                   </div>
                   <!-- term and condition -->
                   <div class="mb-3 mx-3">
-                    <p class="text-light text-center">Dengan mengklik tombol daftar, anda setuju dengan <a href="#" class="text-light">Syarat Ketentuan</a> dan <a href="#" class="text-light">Kebijakan privacy</a> kami</p>
+                    <p class="text-light text-center">Dengan mengklik tombol daftar, anda setuju dengan <a href="#" class="text-warning">Syarat Ketentuan</a> dan <a href="#" class="text-warning">Kebijakan privacy</a> kami</p>
                   </div>
                   <!-- button -->
                   <div class="mb-3 mx-3 d-grid gap-2">
-                    <button type="submit" class="btn text-dark btn-green border-0">Daftar</button>
+                    <button type="submit" class="btn text-dark btn-green border-0 ">{{ __('Register') }}</button>
                   </div>
                   <!-- link to register -->
                   <div class="mb-3 mx-3">
-                    <p class="text-light text-center">Sudah punya akun? <a href="login.html" class="text-light">Login</a> disini</p>
+                    <p class="text-light text-center">Sudah punya akun? <a href="/login" class="text-warning">Login</a> disini</p>
                   </div>
                 </form>
               </div>

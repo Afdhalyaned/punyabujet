@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Models\Team;
+
 
 class RegisteredUserController extends Controller
 {
@@ -39,10 +41,18 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $team = new Team;
+        $team->name = $request->name;
+        $team->save();
+
+        $request->request->add(['team_id' => $team->id ]);
+
+        // dd($request);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'team_id' => $request->team_id,
         ]);
 
         event(new Registered($user));
