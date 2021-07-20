@@ -43,6 +43,7 @@ class CategoryController extends Controller
         $category = new CategorySub;
         $category->category_id = $request->category_id;
         $category->name = $request->category_sub_name;
+        $category->team_id = Auth::user()->team_id;
         $category->save();
 
         return redirect('/category');
