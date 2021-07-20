@@ -54,6 +54,8 @@
     <script src="{{asset('js/script.js')}}"></script>
     <!-- end main javascript -->
 
+    @yield('js')
+
 
   </body>
   <!-- end body -->

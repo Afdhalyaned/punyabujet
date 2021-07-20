@@ -57,7 +57,7 @@
         <div class="modal-dialog">
             <div class="modal-content bg-black">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title text-light" id="exampleModalLabel">Edit Transakti</h5>
+                    <h5 class="modal-title text-light" id="exampleModalLabel">Tambah Transakti</h5>
                     <button type="button" class="btn-close border-0" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -73,15 +73,24 @@
                         </div>
                         <!-- pengeluaran/pemasukan -->
                         <div class="mb-3">
-                            <select required class="form-select border-0" name="root-category" id="root-category">
-                                <option  value=" ">pengeluaran</option>
-                                <option selected value=" ">pemasukan</option>
+                            <select required class="form-select border-0" name="root-category" onchange="changeStatus()" id="categoryType">
+                                <option  value="1">Pemasukan</option>
+                                <option selected value="2">Pengeluaran</option>
                             </select>
                         </div>
-                        <!-- kategori -->
-                        <div class="mb-3">
-                            <select required name="category_sub_id" class="form-select border-0" id="root-category">
-                                <option selected value="">--- pilih kategori ---</option>
+                        <!-- kategori pengeluaran-->
+                        <div class="mb-3" id="expence-category">
+                            <select required name="category_sub_id" class="form-select border-0" >
+                                <option selected value="">--- kategori pengeluaran ---</option>
+                                @foreach($categorySubs as $categorySub)
+                                    <option value="{{$categorySub->id}}">{{$categorySub->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <!-- kategori pemasukan-->
+                        <div class="mb-3" id="income-category" style="visibility: hidden">
+                            <select required name="category_sub_id" class="form-select border-0">
+                                <option selected value="">--- pilih pemasukan ---</option>
                                 @foreach($categorySubs as $categorySub)
                                     <option value="{{$categorySub->id}}">{{$categorySub->name}}</option>
                                 @endforeach
@@ -109,7 +118,7 @@
         </div>
     </div>
 
-    <!-- Modal Edit Transaction-->
+    <!-- Modal Tambah Transaction-->
     <div class="modal fade " id="edittransaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-black">
@@ -212,4 +221,25 @@
         </nav>
     </div>
     <!-- end bottom nav -->
+@endsection
+
+@section('js')
+<script>
+    function changeStatus()
+    {
+        var categoryType = document.getElementById("categoryType");
+        if (categoryType.value == "1"){
+            document.getElementById("income-category").style.visibility="visible";
+        }
+        else{
+            document.getElementById("income-category").style.visibility="hidden";
+        }
+        if (categoryType.value == "2"){
+            document.getElementById("expence-category").style.visibility="visible";
+        }
+        else{
+            document.getElementById("expence-category").style.visibility="hidden";
+        }
+    }
+</script>
 @endsection
