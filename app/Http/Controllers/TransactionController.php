@@ -52,7 +52,11 @@ class TransactionController extends Controller
         $transaction->date = $request->date;
         $transaction->detail = $request->detail;
         $transaction->ammount = $request->ammount;
-        $transaction->category_sub_id = $request->category_sub_id;
+        if($request->category_income){
+            $transaction->category_sub_id = $request->category_income;
+        }else{
+            $transaction->category_sub_id = $request->category_expence;
+        }
         $transaction->wallet_id = $request->wallet_id;
         $transaction->save();
 
