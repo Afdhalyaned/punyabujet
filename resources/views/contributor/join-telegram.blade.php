@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col">
 
-            <div class="image"><img src="{{asset('asset/contributor.svg')}}" alt="" style="width: 500px"></div>
+            <div class="image"><img class="img-fluid" src="{{asset('asset/contributor.svg')}}" alt="" style="max-width: 300px"></div>
             <a href="https://t.me/joinchat/WsoXyExAQTFkZDI1" class="btn btn-dark text light my-5">Join Group Telegram Kontributor</a>
         </div>
     </div>
