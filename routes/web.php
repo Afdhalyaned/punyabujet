@@ -62,4 +62,9 @@ Route::post('/profile/{profile}/update', 'App\Http\Controllers\ProfileController
 Route::get('/collaborator', 'App\Http\Controllers\CollaboratorController@index')->middleware(['auth'])->name('budget');
 Route::post('/collaborator/{collaborator}/update', 'App\Http\Controllers\CollaboratorController@update')->middleware(['auth'])->name('budget');
 
+// kontributor landing page
+Route::get('/kontributor', function () {
+    return view('/contributor.join-telegram');
+});
+
 require __DIR__.'/auth.php';
