@@ -53,7 +53,7 @@
     <!-- end new transaction button -->
 
     <!-- Modal Create New-->
-    <div class="modal fade " id="createtransaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="createtransaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-black">
                 <div class="modal-header border-0">
@@ -80,7 +80,7 @@
                         </div>
                         <!-- kategori pengeluaran-->
                         <div class="mb-3" id="expence-category">
-                            <select name="category_income" class="form-select border-0" >
+                            <select name="category_income" data-width="100%" id="expence" class="form-select" >
                                 <option selected value="">--- kategori pengeluaran ---</option>
                                 @foreach($categorySubs as $categorySub)
                                     <option value="{{$categorySub->id}}">{{$categorySub->name}}</option>
@@ -89,7 +89,7 @@
                         </div>
                         <!-- kategori pemasukan-->
                         <div class="mb-3" id="income-category" style="visibility: hidden">
-                            <select name="category_expence" class="form-select border-0">
+                            <select name="category_expence" class="form-select border-0 ">
                                 <option selected value="">--- pilih pemasukan ---</option>
                                 @foreach($categorySubs as $categorySub)
                                     <option value="{{$categorySub->id}}">{{$categorySub->name}}</option>
@@ -102,7 +102,7 @@
                         </div>
                         <!-- metode pembayaran -->
                         <div class="mb-3">
-                            <select required name="wallet_id" class="form-select border-0" id="root-category">
+                            <select required name="wallet_id" data-width="100%" id="wallet" class="form-select border-0" id="root-category">
                                 <option selected value="">--- pilih dompet ---</option>
                                 @foreach($wallets as $wallet)
                                     <option value="{{$wallet->id}}">{{$wallet->name}}</option>
@@ -155,6 +155,19 @@
 @endsection
 
 @section('js')
+<script src="{{asset('vendor/jquery/jQuery3.6.0.js')}}"></script>
+<script src="{{asset('vendor/select2-4.1.0-rc.0/dist/js/select2.min.js')}}"></script>
+<script>
+    // select2 Library
+    $(document).ready(function() {
+        $('#expence').select2({
+        dropdownParent: $('#createtransaction')
+        });
+        $('#wallet').select2({
+        dropdownParent: $('#createtransaction')
+        });
+    })
+</script>
 <script>
     function changeStatus()
     {
@@ -173,4 +186,6 @@
         }
     }
 </script>
+
+
 @endsection
