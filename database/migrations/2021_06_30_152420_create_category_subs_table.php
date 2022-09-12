@@ -17,8 +17,9 @@ class CreateCategorySubsTable extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('name');
-            $table->string('budget');
+            $table->string('budget')->nullable();
             $table->tinyInteger('type');
+            $table->foreignId('team_id')->constrained('teams')->onDelete('cascade');
             $table->timestamps();
         });
     }
